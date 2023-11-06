@@ -41,27 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Next Screen Lock'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                maxWidth: 700,
-              ),
-              child: Wrap(
-                spacing: 16,
-                runSpacing: 16,
-                alignment: WrapAlignment.start,
-                children: [
-                  ElevatedButton(
-                    onPressed: () => screenLock(
-                      context: context,
+    return ScreenLock(
                       correctString: '79260',
-                      canCancel: false,
                       useBlur: false,
                       config: const ScreenLockConfig(
                         backgroundColor: Colors.black,
@@ -70,14 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.pop(context);
                         NextPage.show(context);
                       },
-                    ),
-                    child: const Text('Start'),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ));
+                    );
   }
 }
 
