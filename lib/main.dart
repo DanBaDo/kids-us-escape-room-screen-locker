@@ -60,82 +60,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   ElevatedButton(
                     onPressed: () => screenLock(
                       context: context,
-                      correctString: '1234',
+                      correctString: '79260',
                       canCancel: false,
                       useBlur: false,
+                      config: const ScreenLockConfig(
+                        backgroundColor: Colors.black,
+                      ),
                       onUnlocked: () {
                         Navigator.pop(context);
                         NextPage.show(context);
                       },
                     ),
-                    child: const Text('Resumo'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      screenLockCreate(
-                        context: context,
-                        title: const Text('change title'),
-                        confirmTitle: const Text('change confirm title'),
-                        onConfirmed: (value) => Navigator.of(context).pop(),
-                        config: const ScreenLockConfig(
-                          backgroundColor: Colors.deepOrange,
-                          titleTextStyle: TextStyle(fontSize: 24),
-                        ),
-                        secretsConfig: SecretsConfig(
-                          spacing: 15, // or spacingRatio
-                          padding: const EdgeInsets.all(40),
-                          secretConfig: SecretConfig(
-                            borderColor: Colors.amber,
-                            borderSize: 2.0,
-                            disabledColor: Colors.black,
-                            enabledColor: Colors.amber,
-                            size: 15,
-                            builder: (context, config, enabled) => Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: enabled
-                                    ? config.enabledColor
-                                    : config.disabledColor,
-                                border: Border.all(
-                                  width: config.borderSize,
-                                  color: config.borderColor,
-                                ),
-                              ),
-                              padding: const EdgeInsets.all(10),
-                              width: config.size,
-                              height: config.size,
-                            ),
-                          ),
-                        ),
-                        keyPadConfig: KeyPadConfig(
-                          buttonConfig: KeyPadButtonConfig(
-                            buttonStyle: OutlinedButton.styleFrom(
-                              textStyle: const TextStyle(
-                                color: Colors.orange,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              shape: const RoundedRectangleBorder(),
-                              backgroundColor: Colors.deepOrange,
-                            ),
-                          ),
-                          displayStrings: [
-                            '零',
-                            '壱',
-                            '弐',
-                            '参',
-                            '肆',
-                            '伍',
-                            '陸',
-                            '質',
-                            '捌',
-                            '玖',
-                          ],
-                        ),
-                        cancelButton: const Icon(Icons.close),
-                        deleteButton: const Icon(Icons.delete),
-                      );
-                    },
-                    child: const Text('Customize styles'),
+                    child: const Text('Start'),
                   ),
                 ],
               ),
@@ -155,9 +91,11 @@ class NextPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Next Page'),
+    return Container(
+      color: Colors.white,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [Image(image: AssetImage('images/smile.png'))],
       ),
     );
   }
